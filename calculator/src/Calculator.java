@@ -1,24 +1,33 @@
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-import javax.script.ScriptException;
-
-
 public class Calculator
+
 {
+	interface OperationSimple
+	{
+		int calculer(int num1, int num2);
+	}
+
 	public static void main(String[] args)
 	{
 
 	}
 
-	public int add (int num1, int num2) {
+	OperationSimple simplyAdd = (num1, num2) -> num1 + num2;
+	OperationSimple simplySubstract = (num1, num2) -> num1 - num2;
+	OperationSimple simplyMultiply = (num1, num2) -> num1 * num2;
+	OperationSimple simplyDivid = (num1, num2) -> num1 / num2;
+
+	public int add(int num1, int num2)
+	{
 		return num1 + num2;
 	}
 
-	public int minus (int num1, int num2) {
+	public int minus(int num1, int num2)
+	{
 		return num1 - num2;
 	}
 
-	public int multiply (int num1, int num2) {
+	public int multiply(int num1, int num2)
+	{
 		return num1 * num2;
 	}
 
@@ -39,11 +48,29 @@ public class Calculator
 			case DIVID:
 				return divid(num1,num2);
 			case MULTIPLY:
-				return multiply(num1,num2);
+				return multiply(num1, num2);
 			case PLUS:
-				return add(num1,num2);
+				return add(num1, num2);
 			case MINUS:
-				return minus(num1,num2);
+				return minus(num1, num2);
+			default:
+				return 0;
+		}
+	}
+
+	public int simplyoperate(int num1, int num2, Operators operators) throws NumberFormatException, ArithmeticException
+	{
+
+		switch (operators)
+		{
+			case DIVID:
+				return simplyDivid.calculer(num1, num2);
+			case MULTIPLY:
+				return simplyMultiply.calculer(num1, num2);
+			case PLUS:
+				return simplyAdd.calculer(num1, num2);
+			case MINUS:
+				return simplySubstract.calculer(num1, num2);
 			default:
 				return 0;
 		}

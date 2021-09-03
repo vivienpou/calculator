@@ -21,6 +21,7 @@ public class CalculatorTest
 	{
 		Assertions.assertEquals(calculator.add(2, 3), 5);
 		Assertions.assertEquals(calculator.operation(2, 3, Operators.PLUS), 5);
+		Assertions.assertEquals(calculator.simplyoperate(2, 3, Operators.PLUS), 5);
 
 	}
 
@@ -29,6 +30,7 @@ public class CalculatorTest
 	{
 		Assertions.assertEquals(calculator.minus(2, 3), -1);
 		Assertions.assertEquals(calculator.operation(2, 3, Operators.MINUS), -1);
+		Assertions.assertEquals(calculator.simplyoperate(2, 3, Operators.MINUS), -1);
 
 	}
 
@@ -40,8 +42,11 @@ public class CalculatorTest
 		Assertions.assertEquals(calculator.multiply(-2, -3), 6);
 		Assertions.assertEquals(calculator.multiply(-2, 0), 0);
 		Assertions.assertEquals(calculator.operation(2, 3, Operators.MULTIPLY), 6);
+		Assertions.assertEquals(calculator.simplyoperate(2, 3, Operators.MULTIPLY), 6);
 		Assertions.assertEquals(calculator.operation(-2, 3, Operators.MULTIPLY), -6);
+		Assertions.assertEquals(calculator.simplyoperate(-2, 3, Operators.MULTIPLY), -6);
 		Assertions.assertEquals(calculator.operation(-2, 0, Operators.MULTIPLY), 0);
+		Assertions.assertEquals(calculator.simplyoperate(-2, 0, Operators.MULTIPLY), 0);
 	}
 
 	@Test
@@ -59,8 +64,11 @@ public class CalculatorTest
 		assertTrue(actualMessage.contains(expectedMessage));
 
 		Assertions.assertEquals(calculator.operation(6, 2, Operators.DIVID), 3);
+		Assertions.assertEquals(calculator.simplyoperate(6, 2, Operators.DIVID), 3);
 		Assertions.assertEquals(calculator.operation(-6, 3, Operators.DIVID), -2);
+		Assertions.assertEquals(calculator.simplyoperate(-6, 3, Operators.DIVID), -2);
 		Assertions.assertEquals(calculator.operation(-6, -2, Operators.DIVID), 3);
+		Assertions.assertEquals(calculator.simplyoperate(-6, -2, Operators.DIVID), 3);
 	}
 
 }
